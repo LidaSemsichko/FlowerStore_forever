@@ -22,7 +22,10 @@ public class Flower {
     private double price;
     private FlowerType type;
 
-    public Flower(String color, int sepalLength, double price, FlowerType type) {
+    public Flower(String color, 
+                    int sepalLength, 
+                    double price, 
+                    FlowerType type) {
         this.color = color;
         this.sepalLength = sepalLength;
         this.price = price;

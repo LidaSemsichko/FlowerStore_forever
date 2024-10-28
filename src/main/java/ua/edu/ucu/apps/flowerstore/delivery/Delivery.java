@@ -4,5 +4,5 @@ import java.util.List;
 import ua.edu.ucu.apps.flowerstore.flower.Item;
 
 public interface Delivery {
-    public void deliver(List<Item> items);
+    void deliver(List<Item> items);
 }
