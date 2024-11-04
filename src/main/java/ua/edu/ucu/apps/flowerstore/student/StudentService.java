@@ -7,8 +7,14 @@ import java.util.List;
 
 @Service
 public class StudentService {
-    List<Student> getStudents(){
-        return new ArrayList<>();
-    };
-    void addStudent(Student st){};
+
+    private final List<Student> studentList = new ArrayList<>();
+
+    public List<Student> fetchAllStudents() {
+        return new ArrayList<>(studentList);
+    }
+
+    public void enrollStudent(Student student) {
+        studentList.add(student);
+    }
 }

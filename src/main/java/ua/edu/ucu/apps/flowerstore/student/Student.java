@@ -11,18 +11,24 @@ import lombok.Setter;
 import java.time.LocalDate;
 import java.time.Period;
 
-@Getter @Setter @AllArgsConstructor
-@Table @Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@Entity
+@Table(name = "students")
 public class Student {
-    String name;
-    String gender;
+    private String fullName;
+    private String gender;
+    
     @Transient
-    int age;
-    LocalDate dateOfBirth;
-    @Id
-    private Long id;
+    private int computedAge;
 
-    public int getAge(){
-        return Period.between(dateOfBirth, LocalDate.now()).getYears();
+    private LocalDate birthDate;
+
+    @Id
+    private Long studentId;
+
+    public int calculateAge() {
+        return Period.between(birthDate, LocalDate.now()).getYears();
     }
 }

@@ -7,31 +7,32 @@ import ua.edu.ucu.apps.flowerstore.payment.Payment;
 import java.util.List;
 
 public class Order {
-    private List<Item> items;
-    private Payment payment;
-    private Delivery delivery;
+    private List<Item> products;
+    private Payment paymentMethod;
+    private Delivery deliveryMethod;
 
-    public void setPaymentStrategy(Payment newPayment) {
-        payment = newPayment;
+    public void setPaymentMethod(Payment paymentMethod) {
+        this.paymentMethod = paymentMethod;
     }
-    public void setDeliveryStrategy(Delivery newDelivery) {
-        delivery = newDelivery;
+
+    public void setDeliveryMethod(Delivery deliveryMethod) {
+        this.deliveryMethod = deliveryMethod;
     }
-    public double calculateTotalPrice() {
-        double totalPrice = 0;
-        for (Item item : items) {
-            totalPrice += item.getPrice();
-        }
-        return totalPrice;
+
+    public double getTotalCost() {
+        return products.stream().mapToDouble(Item::getPrice).sum();
     }
-    public void processOrder() {
-        payment.pay(calculateTotalPrice());
-        delivery.deliver(items);
+
+    public void executeOrder() {
+        paymentMethod.pay(getTotalCost());
+        deliveryMethod.deliver(products);
     }
-    public void addItem(Item item) {
-        items.add(item);
+
+    public void addProduct(Item product) {
+        products.add(product);
     }
-    public void removeItem(Item item) {
-        items.remove(item);
+
+    public void removeProduct(Item product) {
+        products.remove(product);
     }
 }

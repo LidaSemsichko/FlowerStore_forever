@@ -7,7 +7,8 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface StudentRepository extends JpaRepository<Student, Long>{
-    @Query("SELECT u FROM Student u WHERE u.name = ?1")
-    Optional<Student> findByFirstName(String name);
+public interface StudentRepository extends JpaRepository<Student, Long> {
+
+    @Query("SELECT s FROM Student s WHERE s.fullName = ?1")
+    Optional<Student> findByFullName(String fullName);
 }

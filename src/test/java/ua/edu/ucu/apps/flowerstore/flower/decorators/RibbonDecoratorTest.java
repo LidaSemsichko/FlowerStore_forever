@@ -8,26 +8,28 @@ import ua.edu.ucu.apps.flowerstore.flower.FlowerType;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RibbonDecoratorTest {
-    Flower flower;
-    RibbonDecorator bask;
-    double expected;
-    String expectedDesc;
-    double delta;
+    private Flower testFlower;
+    private RibbonDecorator ribbonedFlower;
+    private double expectedPrice;
+    private String expectedDescription;
+    private double priceTolerance;
+
     @BeforeEach
     void setUp() {
-        flower = new Flower("red", 10, 13, FlowerType.ROSE);
-        bask = new RibbonDecorator(flower);
-        expected = 53;
-        expectedDesc = "успішний успіх!, ribbon";
-        delta = 0.000001;
-    }
-    @Test
-    void getPrice() {
-        assertEquals(expected, bask.getPrice(), delta);
+        testFlower = new Flower("red", 10, 13, FlowerType.ROSE);
+        ribbonedFlower = new RibbonDecorator(testFlower);
+        expectedPrice = 53;
+        expectedDescription = "успішний успіх!, ribbon";
+        priceTolerance = 1e-6;
     }
 
     @Test
-    void getDescription() {
-        assertEquals(expectedDesc, bask.getDescription());
+    void testGetPrice() {
+        assertEquals(expectedPrice, ribbonedFlower.getPrice(), priceTolerance);
+    }
+
+    @Test
+    void testGetDescription() {
+        assertEquals(expectedDescription, ribbonedFlower.getDescription());
     }
 }
