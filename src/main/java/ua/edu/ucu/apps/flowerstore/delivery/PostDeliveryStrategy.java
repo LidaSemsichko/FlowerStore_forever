@@ -15,5 +15,8 @@ public class PostDeliveryStrategy implements Delivery {
         str.append(" ," + description);
         return str.toString();
     }
+    public String getDescription() {
+        return description;
+    }
 }
 

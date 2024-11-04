@@ -27,6 +27,7 @@ public class Flower extends Item{
         this.sepalLength = sepalLength;
         this.price = price;
         this.type = type;
+        this.description = "успішний успіх!";
     }
 
     public Flower(Flower flower) {

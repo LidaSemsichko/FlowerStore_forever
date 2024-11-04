@@ -7,7 +7,7 @@ public class CreditCardPaymentStrategy implements Payment {
     private String description;
 
     public CreditCardPaymentStrategy() {
-        description = "CreditCard";
+        description = "Creditka";
     }
 
     public void pay(double price) {
